@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meine GTA 6 Favoriten</title>
+<style>
+  :root {
+    --pink: #ff2fa8;
+    --cyan: #22e4ff;
+    --orange: #ff8a3d;
+    --night: #120724;
+    --deep: #1c0a33;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: linear-gradient(180deg, var(--deep) 0%, var(--night) 40%, #1a0830 100%);
+    min-height: 100vh;
+    padding-bottom: 56px;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    color: #fff;
+  }
+  .hero {
+    position: relative;
+    overflow: hidden;
+    min-height: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #1a0638 0%, #4a1270 28%, #a02483 52%, var(--pink) 68%, var(--orange) 84%, #ffc75a 100%);
+  }
+  .hero svg.bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .hero-copy {
+    position: relative;
+    text-align: center;
+    padding: 44px 16px 70px;
+  }
+  .badge-vc {
+    display: inline-block;
+    font-size: 13px;
+    letter-spacing: 6px;
+    font-weight: 800;
+    color: var(--cyan);
+    border: 2px solid var(--cyan);
+    border-radius: 6px;
+    padding: 4px 12px;
+    text-shadow: 0 0 8px var(--cyan);
+    box-shadow: 0 0 12px #22e4ff55;
+    background: rgba(18,7,36,0.45);
+  }
+  .hero h1 {
+    font-size: clamp(40px, 11vw, 88px);
+    font-weight: 900;
+    font-style: italic;
+    line-height: 0.95;
+    letter-spacing: -1px;
+    margin: 16px 0 14px;
+    color: #fff;
+    transform: skewX(-6deg);
+    text-shadow: 3px 3px 0 var(--pink), 6px 6px 0 var(--cyan), 9px 9px 0 var(--night), 0 0 30px var(--pink);
+  }
+  .hero-sub {
+    display: inline-block;
+    font-size: clamp(14px, 3.6vw, 18px);
+    font-weight: 800;
+    font-style: italic;
+    color: #fff;
+    background: rgba(18,7,36,0.6);
+    padding: 6px 14px;
+    border-radius: 999px;
+    text-shadow: 0 0 8px var(--pink);
+  }
+  .jumpbar {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: rgba(18,7,36,0.88);
+    border-bottom: 1px solid #ff2fa855;
+    padding: 10px 12px;
+  }
+  .jumpbar-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+  }
+  .chip {
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 800;
+    font-style: italic;
+    background: transparent;
+    border-radius: 999px;
+    padding: 6px 12px;
+    color: var(--chip);
+    border: 1.5px solid var(--chip);
+    text-shadow: 0 0 6px var(--chip);
+    box-shadow: 0 0 8px var(--chip);
+  }
+  .chip span { color: #fff; opacity: 0.8; }
+  .wrap { max-width: 1000px; margin: 0 auto; padding: 0 12px; }
+  .section { padding-top: 44px; scroll-margin-top: 70px; }
+  .sec-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+  }
+  .sec-title {
+    font-size: clamp(20px, 5.5vw, 30px);
+    font-weight: 900;
+    font-style: italic;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 6px 16px;
+    border: 3px solid var(--col);
+    border-radius: 10px;
+    text-shadow: 0 0 6px var(--col), 0 0 14px var(--col), 0 0 28px var(--col);
+    box-shadow: 0 0 14px var(--col), inset 0 0 14px var(--col);
+    transform: skewX(-6deg);
+  }
+  .sec-count {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--night);
+    background: var(--col);
+    border-radius: 999px;
+    padding: 3px 10px;
+    box-shadow: 0 0 10px var(--col);
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  @media (min-width: 800px) {
+    .grid { grid-template-columns: repeat(4, 1fr); }
+  }
+  .card {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #1f0b38;
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  }
+  .card:hover, .card:focus-visible {
+    transform: translateY(-4px);
+    border-color: var(--col);
+    box-shadow: 0 0 22px var(--col), 0 0 4px var(--col);
+    outline: none;
+  }
+  .thumb { position: relative; }
+  .thumb img {
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
+    width: 100%;
+    display: block;
+    border: 0;
+  }
+  .fade {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(18,7,36,0) 55%, rgba(18,7,36,0.85) 100%);
+    pointer-events: none;
+  }
+  .num {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    min-width: 34px;
+    height: 34px;
+    padding: 0 6px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 17px;
+    line-height: 1;
+    color: var(--night);
+    background: linear-gradient(135deg, var(--pink), var(--orange));
+    box-shadow: 0 0 10px var(--pink);
+  }
+  .play {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 58px;
+    height: 58px;
+    margin-left: -29px;
+    margin-top: -29px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(18,7,36,0.55);
+    border: 3px solid var(--col);
+    box-shadow: 0 0 18px var(--col);
+    transition: all .18s ease;
+  }
+  .play path { fill: #fff; transition: fill .18s ease; }
+  .card:hover .play, .card:focus-visible .play {
+    background: var(--col);
+    border-color: #fff;
+  }
+  .card:hover .play path, .card:focus-visible .play path { fill: var(--night); }
+  .meta { padding: 10px 11px 12px; }
+  .title { font-size: 15px; font-weight: 800; line-height: 1.25; }
+  .creator {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--cyan);
+    margin-top: 5px;
+    text-shadow: 0 0 6px #22e4ff88;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+  <div class="hero">
+    <svg class="bg" viewBox="0 0 1200 420" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <defs>
+        <linearGradient id="sunG" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#fff27a"/>
+          <stop offset="55%" stop-color="#ff9a3d"/>
+          <stop offset="100%" stop-color="#ff2fa8"/>
+        </linearGradient>
+        <linearGradient id="seaG" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#3a0f5c"/>
+          <stop offset="100%" stop-color="#120724"/>
+        </linearGradient>
+      </defs>
+      <circle cx="90" cy="60" r="1.6" fill="#fff" opacity="0.7"/>
+      <circle cx="240" cy="30" r="1.6" fill="#fff" opacity="0.7"/>
+      <circle cx="980" cy="50" r="1.6" fill="#fff" opacity="0.7"/>
+      <circle cx="1110" cy="90" r="1.6" fill="#fff" opacity="0.7"/>
+      <circle cx="700" cy="25" r="1.6" fill="#fff" opacity="0.7"/>
+      <circle cx="520" cy="70" r="1.6" fill="#fff" opacity="0.7"/>
+      <circle cx="600" cy="300" r="150" fill="url(#sunG)"/>
+      <rect x="440" y="235" width="320" height="3" fill="#b0287f"/>
+      <rect x="440" y="248" width="320" height="4.6" fill="#b0287f"/>
+      <rect x="440" y="261" width="320" height="6.2" fill="#b0287f"/>
+      <rect x="440" y="274" width="320" height="7.8" fill="#b0287f"/>
+      <rect x="440" y="287" width="320" height="9.4" fill="#b0287f"/>
+      <rect x="440" y="300" width="320" height="11" fill="#b0287f"/>
+      <rect x="300" y="260" width="60" height="70" fill="#2a0b47" opacity="0.9"/>
+      <rect x="370" y="210" width="40" height="110" fill="#2a0b47" opacity="0.9"/>
+      <rect x="420" y="240" width="55" height="80" fill="#2a0b47" opacity="0.9"/>
+      <rect x="485" y="180" width="35" height="140" fill="#2a0b47" opacity="0.9"/>
+      <rect x="530" y="225" width="60" height="95" fill="#2a0b47" opacity="0.9"/>
+      <rect x="600" y="195" width="45" height="125" fill="#2a0b47" opacity="0.9"/>
+      <rect x="655" y="250" width="70" height="70" fill="#2a0b47" opacity="0.9"/>
+      <rect x="735" y="170" width="40" height="150" fill="#2a0b47" opacity="0.9"/>
+      <rect x="785" y="230" width="55" height="90" fill="#2a0b47" opacity="0.9"/>
+      <rect x="850" y="205" width="45" height="115" fill="#2a0b47" opacity="0.9"/>
+      <rect x="0" y="318" width="1200" height="102" fill="url(#seaG)"/>
+      <rect x="460" y="326" width="280" height="2" fill="#ffb15a" opacity="0.55"/>
+      <rect x="430" y="340" width="340" height="2" fill="#22e4ff" opacity="0.47"/>
+      <rect x="400" y="354" width="400" height="2" fill="#ffb15a" opacity="0.39"/>
+      <rect x="370" y="368" width="460" height="2" fill="#22e4ff" opacity="0.31"/>
+      <rect x="340" y="382" width="520" height="2" fill="#ffb15a" opacity="0.23"/>
+      <g transform="translate(70 420) scale(1.55 1.55)" fill="none" stroke="#120724" stroke-linecap="round">
+        <path d="M0 0 C 6 -60, 18 -120, 40 -170" stroke-width="9"/>
+        <path d="M40 -170 C 10 -185, -20 -180, -45 -150" stroke-width="7"/>
+        <path d="M40 -170 C 0 -200, -30 -205, -60 -195" stroke-width="6"/>
+        <path d="M40 -170 C 50 -210, 75 -220, 100 -215" stroke-width="6"/>
+        <path d="M40 -170 C 80 -190, 110 -175, 125 -145" stroke-width="7"/>
+        <path d="M40 -170 C 70 -160, 85 -135, 88 -110" stroke-width="6"/>
+        <path d="M40 -170 C 20 -150, 5 -130, 0 -105" stroke-width="6"/>
+        <path d="M40 -170 C 40 -205, 30 -225, 15 -235" stroke-width="5"/>
+      </g>
+      <g transform="translate(190 420) scale(1.05 1.05)" fill="none" stroke="#120724" stroke-linecap="round">
+        <path d="M0 0 C 6 -60, 18 -120, 40 -170" stroke-width="9"/>
+        <path d="M40 -170 C 10 -185, -20 -180, -45 -150" stroke-width="7"/>
+        <path d="M40 -170 C 0 -200, -30 -205, -60 -195" stroke-width="6"/>
+        <path d="M40 -170 C 50 -210, 75 -220, 100 -215" stroke-width="6"/>
+        <path d="M40 -170 C 80 -190, 110 -175, 125 -145" stroke-width="7"/>
+        <path d="M40 -170 C 70 -160, 85 -135, 88 -110" stroke-width="6"/>
+        <path d="M40 -170 C 20 -150, 5 -130, 0 -105" stroke-width="6"/>
+        <path d="M40 -170 C 40 -205, 30 -225, 15 -235" stroke-width="5"/>
+      </g>
+      <g transform="translate(1130 420) scale(-1.6 1.6)" fill="none" stroke="#120724" stroke-linecap="round">
+        <path d="M0 0 C 6 -60, 18 -120, 40 -170" stroke-width="9"/>
+        <path d="M40 -170 C 10 -185, -20 -180, -45 -150" stroke-width="7"/>
+        <path d="M40 -170 C 0 -200, -30 -205, -60 -195" stroke-width="6"/>
+        <path d="M40 -170 C 50 -210, 75 -220, 100 -215" stroke-width="6"/>
+        <path d="M40 -170 C 80 -190, 110 -175, 125 -145" stroke-width="7"/>
+        <path d="M40 -170 C 70 -160, 85 -135, 88 -110" stroke-width="6"/>
+        <path d="M40 -170 C 20 -150, 5 -130, 0 -105" stroke-width="6"/>
+        <path d="M40 -170 C 40 -205, 30 -225, 15 -235" stroke-width="5"/>
+      </g>
+      <g transform="translate(1010 420) scale(-1.0 1.0)" fill="none" stroke="#120724" stroke-linecap="round">
+        <path d="M0 0 C 6 -60, 18 -120, 40 -170" stroke-width="9"/>
+        <path d="M40 -170 C 10 -185, -20 -180, -45 -150" stroke-width="7"/>
+        <path d="M40 -170 C 0 -200, -30 -205, -60 -195" stroke-width="6"/>
+        <path d="M40 -170 C 50 -210, 75 -220, 100 -215" stroke-width="6"/>
+        <path d="M40 -170 C 80 -190, 110 -175, 125 -145" stroke-width="7"/>
+        <path d="M40 -170 C 70 -160, 85 -135, 88 -110" stroke-width="6"/>
+        <path d="M40 -170 C 20 -150, 5 -130, 0 -105" stroke-width="6"/>
+        <path d="M40 -170 C 40 -205, 30 -225, 15 -235" stroke-width="5"/>
+      </g>
+    </svg>
+    <div class="hero-copy">
+      <div class="badge-vc">VICE CITY</div>
+      <h1>Meine GTA 6<br>Favoriten</h1>
+      <div class="hero-sub">20 Clips aus deinen TikTok-Favoriten</div>
+    </div>
+  </div>
+
+  <nav class="jumpbar">
+    <div class="jumpbar-inner">
+      <button type="button" class="chip" style="--chip:#ff2fa8" data-jump="g-geld">Geld &amp; Glitches <span>4</span></button>
+      <button type="button" class="chip" style="--chip:#22e4ff" data-jump="g-waffen">Waffen &amp; Fahrzeuge <span>6</span></button>
+      <button type="button" class="chip" style="--chip:#ff2fa8" data-jump="g-bonus">Bonusinhalte &amp; Editionen <span>2</span></button>
+      <button type="button" class="chip" style="--chip:#22e4ff" data-jump="g-einst">Einstellungen <span>2</span></button>
+      <button type="button" class="chip" style="--chip:#ff2fa8" data-jump="g-eggs">Easter Eggs &amp; Geheimnisse <span>3</span></button>
+      <button type="button" class="chip" style="--chip:#22e4ff" data-jump="g-tipps">Tipps &amp; Allgemeines <span>3</span></button>
+    </div>
+  </nav>
+
+  <main class="wrap">
+
+    <section class="section" id="g-geld" style="--col:#ff2fa8">
+      <div class="sec-head">
+        <div class="sec-title">Geld &amp; Glitches</div>
+        <div class="sec-count">4 Clips</div>
+      </div>
+      <div class="grid">
+        <a class="card" href="https://www.tiktok.com/@vice.highlight.hub/video/7710213301468286230" target="_blank" rel="noopener noreferrer">
+          <div class="thumb">
+            <img src="img/v06.jpg" alt="Unendlich-Geld-Glitch" loading="lazy" style="aspect-ratio:9/16;object-fit:cover;width:100%">
+            <div class="fade"></div>
+            <div class="num">1</div>
+            <div class="play"><svg width="22" height="24" viewBox="0 0 22 24"><path d="M3 2 L20 12 L3 22 Z"/></svg></div>
+          </div>
+          <div class="meta">
+            <div class="title">Unendlich-Geld-Glitch</div>
+            <div class="creator">@vice.highlight.hub</div>
+          </div>
+        </a>
+        <a class="card" href="https://www.tiktok.com/@weissehaare/video/7710262477820349728" target="_blank" rel="noopener noreferrer">
+          <div class="thumb">
+            <img src="img/v07.jpg" alt="Unendlich Geld" loading="lazy" style="aspect-ratio:9/16;object-fit:cover;width:100%">
+            <div class="fade"></div>
+            <div class="num">2</div>
+            <div class="play"><svg width="22" height="24" viewBox="0 0 22 24"><path d="M3 2 L20 12 L3 22 Z"/></svg></div>
+          </div>
+          <div class="meta">
+            <div class="title">Unendlich Geld</div>
+            <div class="creator">@weissehaare</div>
+          </div>
+        </a>
+        <a class="card" href="https://www.tiktok.com/@taiheianime/video/7709703360022203681" target="_blank" rel="noopener noreferrer">
+          <div class="thumb">
+            <img src="img/v19.jpg" alt="Schnelles Geld: der Papagei" loading="lazy" style="aspect-ratio:9/16;object-fit:cover;width:100%">
+            <div class="fade"></div>
+            <div class="num">3</div>
+            <div class="play"><svg width="22" height="24" viewBox="0 0 22 24"><path d="M3 2 L20 12 L3 22 Z"/></svg></div>
+          </div>
+          <div class="meta">
+            <div class="title">Schnelles Geld: der Papagei</div>
+            <div class="creator">@taiheianime</div>
+          </div>
+        </a>
+        <a class="card" href="https://www.tiktok.com/@zed.gta/video/7710165816666262816" target="_blank" rel="noopener noreferrer">
+          <div class="thumb">
+            <img src="img/v03.jpg" alt="Belohnungs-Karte in GTA 6" loading="lazy" style="aspect-ratio:9/16;object-fit:cover;width:100%">
+            <div class="fade"></div>
+            <div class="num">4</div>
+            <div class="play"><svg width="22" height="24" viewBox="0 0 22 24"><path d="M3 2 L20 12 L3 22 Z"/></svg></div>
+          </div>
+          <div class="meta">
+            <div class="title">Belohnungs-Karte in GTA 6</div>
+            <div class="creator">@zed.gta</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="section" id="g-waffen" style="--col:#22e4ff">
+      <div class="sec-head">
+        <div class="sec-title">Waffen &amp; Fahrzeuge</div>
+        <div class="sec-count">6 Clips</div>
+      </div>
+      <div class="grid">
+        <a class="card" href="https://www.tiktok.com/@scenesecrets18/video/7710140924034043158" target="_blank" rel="noopener noreferrer">
+          <div class="thumb">
+            <img src="img/v08.jpg" alt="Goldene AK-47 und Sportwagen nach dem Prolog" loading="lazy" style="aspect-ratio:9/16;object-fit:cover;width:100%">
+            <div class="fade"></div>
+            <div class="num">5</div>
+            <div class="play"><svg width="22" height="24" viewBox="0 0 22 24"><path d="M3 2 L20 12 L3 22 Z"/></svg></div>
+          </div>
+          <div class="meta">
+            <div class="title">Goldene AK-47 und Sportwagen nach dem Prolog</div>
+            <div class="creator">@scenesecrets18</div>
+          </div>
+        </a>
+        <a class="card" href="https://www.tiktok.com/@shamzzgaming/video/7709812577605373216" target="_blank" rel="noopener noreferrer">
+          <div class="thumb">
+            <img src="img/v15.jpg" alt="2 legendäre Waffen gleich am Anfang" loading="lazy" style="aspect-ratio:9/16;object-fit:cover;width:100%">
+            <div class="fade"></div>
+            <div class="num">6</div>
+            <div class="play"><svg width="22" height="24" viewBox="0 0 22 24"><path d="M3 2 L20 12 L3 22 Z"/></svg></div>
+          </div>
+          <div class="meta">
+            <div class="title">2 legendäre Waffen gleich am Anfang</div>
+            <div class="creator">@shamzzgaming</div>
+          </div>
+        </a>
+        <a class="card" href="https://www.tiktok.com/@fragnart/video/7709830381025103137" target="_blank" rel="noopener noreferrer">
+          <div class="thumb">
+            <img src="img/v17.jpg" alt="SM-69 Scharfschützengewehr und Fallschirme" loading="lazy" style="aspect-ratio:9/16;object-fit:cover;width:100%">
+            <div class="fade"></div>
+            <div class="num">7</div>
+            <div class="play"><svg width="22" height="24" viewBox="0 0 22 24"><path d="M3 2 L20 12 L3 22 Z"/></svg></div>
+          </div>
+          <div class="meta">
+            <div class="title">SM-69 Scharfschützengewehr und Fallschirme</div>
+            <div class="creator">@fragnart</div>
+          </div>
+        </a>
+        <a class="card" href="https://www.tiktok.com/@weissstudiode/video/7709583097645288736" target="_blank" rel="noopener noreferrer">
+          <div class="thumb">
+            <img src="img/v13.jpg" alt="4 exklusive Waffen und 2 Fahrzeuge" loading="lazy" style="aspect-ratio:9/16;object-fit:cover;width:100%">
+            <div class="fade"></div>
+            <div class="num">8</div>
+            <div class="play"><svg width="22" height="24" viewBox="0 0 22 24"><path d="M3 2 L20 12 L3 22 Z"/></svg></div>
+          </div>
+          <div class="meta">
+            <div class="title">4 exklusive Waffen und 2 Fahrzeuge</div>
+            <div class="creator">@weissstudiode</div>
+          </div>
+        </a>
+        <a class="card" href="https://www.tiktok.com/@iamdunkz/video/7709883980610407713" target="_blank" rel="noopener noreferrer">
+          <div class="thumb">
+            <img src="img/v12.jpg" alt="Paul Walkers Auto in GTA 6" loading="lazy" style="aspect-ratio:9/16;object-fit:cover;width:100%">
+            <div class="fade"></div>
+            <div class="num">9</div>
+            <div class="play"><svg width="22" height="24" viewBox="0 0 22 24"><path d="M3 2 L20 12 L3 22 Z"/></svg></div>
+          </div>
+          <div class="meta">
+            <div class="title">Paul Walkers Auto in GTA 6</div>
+            <div class="creator">@iamdunkz</div>
+          </div>
+        </a>
+        <a class="card" href="https://www.tiktok.com/@p9.inhaber/video/7709836225602931990" target="_blank" rel="noopener noreferrer">
+          <div class="thumb">
+            <img src="img/v10.jpg" alt="Autopilot in GTA 6" loading="lazy" style="aspect-ratio:9/16;object-fit:cover;width:100%">
+            <div class="fade"></div>
+            <div class="num">10</div>
+            <div class="play"><svg width="22" height="24" viewBox="0 0 22 24"><path d="M3 2 L20 12 L3 22 Z"/></svg></div>
+          </div>
+          <div class="meta">
+            <div class="title">Autopilot in GTA 6</div>
+            <div class="creator">@p9.inhaber</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="section" id="g-bonus" style="--col:#ff2fa8">
+      <div class="sec-head">
+        <div class="sec-title">Bonusinhalte &amp; Editionen</div>
+        <div class="sec-count">2 Clips</div>
+      </div>
+      <div class="grid">
+        <a class="card" href="https://www.tiktok.com/@weissstudiode/video/7710590058176187681" target="_blank" rel="noopener noreferrer">
+          <div class="thumb">
+            <img src="img/v02.jpg" alt="Bonusinhalte: Vintage Vice City Pack" loading="lazy" style="aspect-ratio:9/16;object-fit:cover;width:100%">
+            <div class="fade"></div>
+            <div class="num">11</div>
+            <div class="play"><svg width="22" height="24" viewBox="0 0 22 24"><path d="M3 2 L20 12 L3 22 Z"/></svg></div>
+          </div>
+          <div class="meta">
+            <div class="title">Bonusinhalte: Vintage Vice City Pack</div>
+            <div class="creator">@weissstudiode</div>
+          </div>
+        </a>
+        <a class="card" href="https://www.tiktok.com/@weissstudiode/video/7709563533440093472" target="_blank" rel="noopener noreferrer">
+          <div class="thumb">
+            <img src="img/v05.jpg" alt="5 exklusive Läden der Ultimate Edition" loading="lazy" style="aspect-ratio:9/16;object-fit:cover;width:100%">
+            <div class="fade"></div>
+            <div class="num">12</div>
+            <div class="play"><svg width="22" height="24" viewBox="0 0 22 24"><path d="M3 2 L20 12 L3 22 Z"/></svg></div>
+          </div>
+          <div class="meta">
+            <div class="title">5 exklusive Läden der Ultimate Edition</div>
+            <div class="creator">@weissstudiode</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="section" id="g-einst" style="--col:#22e4ff">
+      <div class="sec-head">
+        <div class="sec-title">Einstellungen</div>
+        <div class="sec-count">2 Clips</div>
+      </div>
+      <div class="grid">
+        <a class="card" href="https://www.tiktok.com/@venom.aimz/video/7709866438290345249" target="_blank" rel="noopener noreferrer">
+          <div class="thumb">
+            <img src="img/v14.jpg" alt="Die wichtigsten PS5-Einstellungen" loading="lazy" style="aspect-ratio:9/16;object-fit:cover;width:100%">
+            <div class="fade"></div>
+            <div class="num">13</div>
+            <div class="play"><svg width="22" height="24" viewBox="0 0 22 24"><path d="M3 2 L20 12 L3 22 Z"/></svg></div>
+          </div>
+          <div class="meta">
+            <div class="title">Die wichtigsten PS5-Einstellungen</div>
+            <div class="creator">@venom.aimz</div>
+          </div>
+        </a>
+        <a class="card" href="https://www.tiktok.com/@gtakte/video/7710009427042127126" target="_blank" rel="noopener noreferrer">
+          <div class="thumb">
+            <img src="img/v04.jpg" alt="Unscharfes Bild beheben" loading="lazy" style="aspect-ratio:9/16;object-fit:cover;width:100%">
+            <div class="fade"></div>
+            <div class="num">14</div>
+            <div class="play"><svg width="22" height="24" viewBox="0 0 22 24"><path d="M3 2 L20 12 L3 22 Z"/></svg></div>
+          </div>
+          <div class="meta">
+            <div class="title">Unscharfes Bild beheben</div>
+            <div class="creator">@gtakte</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="section" id="g-eggs" style="--col:#ff2fa8">
+      <div class="sec-head">
+        <div class="sec-title">Easter Eggs &amp; Geheimnisse</div>
+        <div class="sec-count">3 Clips</div>
+      </div>
+      <div class="grid">
+        <a class="card" href="https://www.tiktok.com/@filmnotiz06/video/7710648452471999766" target="_blank" rel="noopener noreferrer">
+          <div class="thumb">
+            <img src="img/v01.jpg" alt="Toiletten-Easter-Egg für maximale Ausdauer" loading="lazy" style="aspect-ratio:9/16;object-fit:cover;width:100%">
+            <div class="fade"></div>
+            <div class="num">15</div>
+            <div class="play"><svg width="22" height="24" viewBox="0 0 22 24"><path d="M3 2 L20 12 L3 22 Z"/></svg></div>
+          </div>
+          <div class="meta">
+            <div class="title">Toiletten-Easter-Egg für maximale Ausdauer</div>
+            <div class="creator">@filmnotiz06</div>
+          </div>
+        </a>
+        <a class="card" href="https://www.tiktok.com/@venom.aimz/video/7709975740997029152" target="_blank" rel="noopener noreferrer">
+          <div class="thumb">
+            <img src="img/v11.jpg" alt="Geheimes Easter Egg" loading="lazy" style="aspect-ratio:9/16;object-fit:cover;width:100%">
+            <div class="fade"></div>
+            <div class="num">16</div>
+            <div class="play"><svg width="22" height="24" viewBox="0 0 22 24"><path d="M3 2 L20 12 L3 22 Z"/></svg></div>
+          </div>
+          <div class="meta">
+            <div class="title">Geheimes Easter Egg</div>
+            <div class="creator">@venom.aimz</div>
+          </div>
+        </a>
+        <a class="card" href="https://www.tiktok.com/@sadhappytired/video/7710036248525606177" target="_blank" rel="noopener noreferrer">
+          <div class="thumb">
+            <img src="img/v09.jpg" alt="Mutierte Riesenkrabbe" loading="lazy" style="aspect-ratio:9/16;object-fit:cover;width:100%">
+            <div class="fade"></div>
+            <div class="num">17</div>
+            <div class="play"><svg width="22" height="24" viewBox="0 0 22 24"><path d="M3 2 L20 12 L3 22 Z"/></svg></div>
+          </div>
+          <div class="meta">
+            <div class="title">Mutierte Riesenkrabbe</div>
+            <div class="creator">@sadhappytired</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="section" id="g-tipps" style="--col:#22e4ff">
+      <div class="sec-head">
+        <div class="sec-title">Tipps &amp; Allgemeines</div>
+        <div class="sec-count">3 Clips</div>
+      </div>
+      <div class="grid">
+        <a class="card" href="https://www.tiktok.com/@vicecityvibes.de/video/7707450428350336278" target="_blank" rel="noopener noreferrer">
+          <div class="thumb">
+            <img src="img/v20.jpg" alt="5 Fehler in deiner ersten Stunde" loading="lazy" style="aspect-ratio:9/16;object-fit:cover;width:100%">
+            <div class="fade"></div>
+            <div class="num">18</div>
+            <div class="play"><svg width="22" height="24" viewBox="0 0 22 24"><path d="M3 2 L20 12 L3 22 Z"/></svg></div>
+          </div>
+          <div class="meta">
+            <div class="title">5 Fehler in deiner ersten Stunde</div>
+            <div class="creator">@vicecityvibes.de</div>
+          </div>
+        </a>
+        <a class="card" href="https://www.tiktok.com/@nichtsosteve/video/7709884056980245782" target="_blank" rel="noopener noreferrer">
+          <div class="thumb">
+            <img src="img/v16.jpg" alt="GTA 6 Clip (Teil 1)" loading="lazy" style="aspect-ratio:9/16;object-fit:cover;width:100%">
+            <div class="fade"></div>
+            <div class="num">19</div>
+            <div class="play"><svg width="22" height="24" viewBox="0 0 22 24"><path d="M3 2 L20 12 L3 22 Z"/></svg></div>
+          </div>
+          <div class="meta">
+            <div class="title">GTA 6 Clip (Teil 1)</div>
+            <div class="creator">@nichtsosteve</div>
+          </div>
+        </a>
+        <a class="card" href="https://www.tiktok.com/@nichtsosteve/video/7709878606595443990" target="_blank" rel="noopener noreferrer">
+          <div class="thumb">
+            <img src="img/v18.jpg" alt="GTA 6 Clip (Teil 2)" loading="lazy" style="aspect-ratio:9/16;object-fit:cover;width:100%">
+            <div class="fade"></div>
+            <div class="num">20</div>
+            <div class="play"><svg width="22" height="24" viewBox="0 0 22 24"><path d="M3 2 L20 12 L3 22 Z"/></svg></div>
+          </div>
+          <div class="meta">
+            <div class="title">GTA 6 Clip (Teil 2)</div>
+            <div class="creator">@nichtsosteve</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    document.querySelectorAll("[data-jump]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var el = document.getElementById(btn.getAttribute("data-jump"));
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+  </script>
+</body>
+</html>
