@@ -28,16 +28,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(180deg, #1a0638 0%, #4a1270 28%, #a02483 52%, var(--pink) 68%, var(--orange) 84%, #ffc75a 100%);
+    background: #1a0638 url("img/miami-beach-sunset.webp") center / cover no-repeat;
   }
-  .hero svg.bg {
+  .hero::before {
+    content: "";
     position: absolute;
     inset: 0;
-    width: 100%;
-    height: 100%;
+    background: rgba(18, 7, 36, 0.32);
+    pointer-events: none;
   }
   .hero-copy {
     position: relative;
+    z-index: 1;
     text-align: center;
     padding: 44px 16px 70px;
   }
@@ -247,27 +249,6 @@
     display: block;
     filter: drop-shadow(0 0 4px #ffd24acc);
   }
-  .palm-sway {
-    transform-box: fill-box;
-    transform-origin: 50% 100%;
-    animation: palm-sway 9s ease-in-out infinite;
-  }
-  .palm-sway-2 { animation-duration: 11s; animation-delay: -3s; }
-  .palm-sway-3 { animation-duration: 10s; animation-delay: -5s; }
-  .palm-sway-4 { animation-duration: 12s; animation-delay: -2s; }
-  .sun-move {
-    transform-box: fill-box;
-    transform-origin: 50% 40%;
-    animation: sun-move 16s ease-in-out infinite;
-  }
-  .neon-line {
-    animation: neon-drift 8s ease-in-out infinite;
-  }
-  .neon-line-1 { animation-duration: 9s; animation-delay: 0s; }
-  .neon-line-2 { animation-duration: 11s; animation-delay: -2s; }
-  .neon-line-3 { animation-duration: 8s; animation-delay: -4s; }
-  .neon-line-4 { animation-duration: 12s; animation-delay: -1s; }
-  .neon-line-5 { animation-duration: 10s; animation-delay: -5s; }
   @keyframes neon-flicker {
     0%, 18%, 22%, 24%, 26%, 63%, 67%, 100% {
       opacity: 1;
@@ -282,122 +263,28 @@
       text-shadow: 2px 2px 0 var(--pink), 4px 4px 0 var(--cyan), 6px 6px 0 var(--night), 0 0 4px var(--pink);
     }
   }
-  @keyframes palm-sway {
-    0%, 100% { transform: rotate(-1.6deg); }
-    50% { transform: rotate(1.8deg); }
-  }
-  @keyframes sun-move {
-    0%, 100% { transform: translateY(0) scale(1); }
-    50% { transform: translateY(-7px) scale(1.03); }
-  }
-  @keyframes neon-drift {
-    0%, 100% { transform: translateX(0); opacity: 1; }
-    50% { transform: translateX(14px); opacity: 0.75; }
-  }
   @media (prefers-reduced-motion: reduce) {
-    .hero h1,
-    .palm-sway,
-    .sun-move,
-    .neon-line {
+    .hero h1 {
       animation: none;
     }
+  }
+  .photo-credit {
+    max-width: 1000px;
+    margin: 28px auto 0;
+    padding: 0 12px 8px;
+    font-size: 11px;
+    line-height: 1.4;
+    color: rgba(255,255,255,0.45);
+    text-align: center;
+  }
+  .photo-credit a {
+    color: inherit;
+    text-decoration: underline;
   }
 </style>
 </head>
 <body>
   <div class="hero">
-    <svg class="bg" viewBox="0 0 1200 420" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
-      <defs>
-        <linearGradient id="sunG" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#fff27a"/>
-          <stop offset="55%" stop-color="#ff9a3d"/>
-          <stop offset="100%" stop-color="#ff2fa8"/>
-        </linearGradient>
-        <linearGradient id="seaG" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#3a0f5c"/>
-          <stop offset="100%" stop-color="#120724"/>
-        </linearGradient>
-      </defs>
-      <circle cx="90" cy="60" r="1.6" fill="#fff" opacity="0.7"/>
-      <circle cx="240" cy="30" r="1.6" fill="#fff" opacity="0.7"/>
-      <circle cx="980" cy="50" r="1.6" fill="#fff" opacity="0.7"/>
-      <circle cx="1110" cy="90" r="1.6" fill="#fff" opacity="0.7"/>
-      <circle cx="700" cy="25" r="1.6" fill="#fff" opacity="0.7"/>
-      <circle cx="520" cy="70" r="1.6" fill="#fff" opacity="0.7"/>
-      <g class="sun-move">
-      <circle cx="600" cy="300" r="150" fill="url(#sunG)"/>
-      <rect x="440" y="235" width="320" height="3" fill="#b0287f"/>
-      <rect x="440" y="248" width="320" height="4.6" fill="#b0287f"/>
-      <rect x="440" y="261" width="320" height="6.2" fill="#b0287f"/>
-      <rect x="440" y="274" width="320" height="7.8" fill="#b0287f"/>
-      <rect x="440" y="287" width="320" height="9.4" fill="#b0287f"/>
-      <rect x="440" y="300" width="320" height="11" fill="#b0287f"/>
-      </g>
-      <rect x="300" y="260" width="60" height="70" fill="#2a0b47" opacity="0.9"/>
-      <rect x="370" y="210" width="40" height="110" fill="#2a0b47" opacity="0.9"/>
-      <rect x="420" y="240" width="55" height="80" fill="#2a0b47" opacity="0.9"/>
-      <rect x="485" y="180" width="35" height="140" fill="#2a0b47" opacity="0.9"/>
-      <rect x="530" y="225" width="60" height="95" fill="#2a0b47" opacity="0.9"/>
-      <rect x="600" y="195" width="45" height="125" fill="#2a0b47" opacity="0.9"/>
-      <rect x="655" y="250" width="70" height="70" fill="#2a0b47" opacity="0.9"/>
-      <rect x="735" y="170" width="40" height="150" fill="#2a0b47" opacity="0.9"/>
-      <rect x="785" y="230" width="55" height="90" fill="#2a0b47" opacity="0.9"/>
-      <rect x="850" y="205" width="45" height="115" fill="#2a0b47" opacity="0.9"/>
-      <rect x="0" y="318" width="1200" height="102" fill="url(#seaG)"/>
-      <g class="neon-line neon-line-1"><rect x="460" y="326" width="280" height="2" fill="#ffb15a" opacity="0.55"/></g>
-      <g class="neon-line neon-line-2"><rect x="430" y="340" width="340" height="2" fill="#22e4ff" opacity="0.47"/></g>
-      <g class="neon-line neon-line-3"><rect x="400" y="354" width="400" height="2" fill="#ffb15a" opacity="0.39"/></g>
-      <g class="neon-line neon-line-4"><rect x="370" y="368" width="460" height="2" fill="#22e4ff" opacity="0.31"/></g>
-      <g class="neon-line neon-line-5"><rect x="340" y="382" width="520" height="2" fill="#ffb15a" opacity="0.23"/></g>
-      <g transform="translate(70 420) scale(1.55 1.55)" fill="none" stroke="#120724" stroke-linecap="round">
-        <g class="palm-sway palm-sway-1">
-        <path d="M0 0 C 6 -60, 18 -120, 40 -170" stroke-width="9"/>
-        <path d="M40 -170 C 10 -185, -20 -180, -45 -150" stroke-width="7"/>
-        <path d="M40 -170 C 0 -200, -30 -205, -60 -195" stroke-width="6"/>
-        <path d="M40 -170 C 50 -210, 75 -220, 100 -215" stroke-width="6"/>
-        <path d="M40 -170 C 80 -190, 110 -175, 125 -145" stroke-width="7"/>
-        <path d="M40 -170 C 70 -160, 85 -135, 88 -110" stroke-width="6"/>
-        <path d="M40 -170 C 20 -150, 5 -130, 0 -105" stroke-width="6"/>
-        <path d="M40 -170 C 40 -205, 30 -225, 15 -235" stroke-width="5"/>
-        </g>
-      </g>
-      <g transform="translate(190 420) scale(1.05 1.05)" fill="none" stroke="#120724" stroke-linecap="round">
-        <g class="palm-sway palm-sway-2">
-        <path d="M0 0 C 6 -60, 18 -120, 40 -170" stroke-width="9"/>
-        <path d="M40 -170 C 10 -185, -20 -180, -45 -150" stroke-width="7"/>
-        <path d="M40 -170 C 0 -200, -30 -205, -60 -195" stroke-width="6"/>
-        <path d="M40 -170 C 50 -210, 75 -220, 100 -215" stroke-width="6"/>
-        <path d="M40 -170 C 80 -190, 110 -175, 125 -145" stroke-width="7"/>
-        <path d="M40 -170 C 70 -160, 85 -135, 88 -110" stroke-width="6"/>
-        <path d="M40 -170 C 20 -150, 5 -130, 0 -105" stroke-width="6"/>
-        <path d="M40 -170 C 40 -205, 30 -225, 15 -235" stroke-width="5"/>
-        </g>
-      </g>
-      <g transform="translate(1130 420) scale(-1.6 1.6)" fill="none" stroke="#120724" stroke-linecap="round">
-        <g class="palm-sway palm-sway-3">
-        <path d="M0 0 C 6 -60, 18 -120, 40 -170" stroke-width="9"/>
-        <path d="M40 -170 C 10 -185, -20 -180, -45 -150" stroke-width="7"/>
-        <path d="M40 -170 C 0 -200, -30 -205, -60 -195" stroke-width="6"/>
-        <path d="M40 -170 C 50 -210, 75 -220, 100 -215" stroke-width="6"/>
-        <path d="M40 -170 C 80 -190, 110 -175, 125 -145" stroke-width="7"/>
-        <path d="M40 -170 C 70 -160, 85 -135, 88 -110" stroke-width="6"/>
-        <path d="M40 -170 C 20 -150, 5 -130, 0 -105" stroke-width="6"/>
-        <path d="M40 -170 C 40 -205, 30 -225, 15 -235" stroke-width="5"/>
-        </g>
-      </g>
-      <g transform="translate(1010 420) scale(-1.0 1.0)" fill="none" stroke="#120724" stroke-linecap="round">
-        <g class="palm-sway palm-sway-4">
-        <path d="M0 0 C 6 -60, 18 -120, 40 -170" stroke-width="9"/>
-        <path d="M40 -170 C 10 -185, -20 -180, -45 -150" stroke-width="7"/>
-        <path d="M40 -170 C 0 -200, -30 -205, -60 -195" stroke-width="6"/>
-        <path d="M40 -170 C 50 -210, 75 -220, 100 -215" stroke-width="6"/>
-        <path d="M40 -170 C 80 -190, 110 -175, 125 -145" stroke-width="7"/>
-        <path d="M40 -170 C 70 -160, 85 -135, 88 -110" stroke-width="6"/>
-        <path d="M40 -170 C 20 -150, 5 -130, 0 -105" stroke-width="6"/>
-        <path d="M40 -170 C 40 -205, 30 -225, 15 -235" stroke-width="5"/>
-        </g>
-      </g>
-    </svg>
     <div class="hero-copy">
       <div class="badge-vc">VICE CITY</div>
       <h1>Meine GTA 6<br>Favoriten</h1>
@@ -720,6 +607,8 @@
     </section>
 
   </main>
+
+  <p class="photo-credit">Foto: Dade History, <a href="https://commons.wikimedia.org/wiki/File:South_Pointe_Drive_at_Sundown.png" target="_blank" rel="noopener noreferrer">South Pointe Drive at Sundown</a>, <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a> (für die Seite verkleinert und nach WebP gewandelt).</p>
 
   <script>
     document.querySelectorAll("[data-jump]").forEach(function (btn) {
