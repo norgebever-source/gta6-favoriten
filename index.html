@@ -271,8 +271,38 @@
       text-shadow: 2px 2px 0 var(--pink), 4px 4px 0 var(--cyan), 6px 6px 0 var(--night), 0 0 4px var(--pink);
     }
   }
+
+  .update-banner {
+    text-align: center;
+    padding: 11px 16px 13px;
+    background:
+      linear-gradient(90deg, rgba(255,47,168,0.22), rgba(34,228,255,0.10) 50%, rgba(255,138,61,0.22)),
+      linear-gradient(180deg, #2a0a42 0%, #120724 100%);
+    border-bottom: 2px solid var(--pink);
+    box-shadow: 0 0 28px #ff2fa866, inset 0 -1px 0 #22e4ff88;
+  }
+  .update-kicker {
+    font-family: Bungee, system-ui, sans-serif;
+    font-size: clamp(22px, 7.2vw, 38px);
+    line-height: 1.05;
+    letter-spacing: 0.5px;
+    color: #fff;
+    text-transform: uppercase;
+    transform: skewX(-6deg);
+    text-shadow: 2px 2px 0 var(--pink), 4px 4px 0 var(--cyan), 0 0 18px var(--pink);
+    animation: neon-flicker 7.5s step-end infinite;
+  }
+  .update-date {
+    margin-top: 5px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.6px;
+    color: var(--cyan);
+    text-shadow: 0 0 8px var(--cyan);
+  }
   @media (prefers-reduced-motion: reduce) {
-    .hero h1 {
+    .hero h1,
+    .update-kicker {
       animation: none;
     }
   }
@@ -292,6 +322,10 @@
 </style>
 </head>
 <body>
+  <aside class="update-banner" data-updated="2026-11-23">
+    <div class="update-kicker">Tägliche Updates</div>
+    <div class="update-date"></div>
+  </aside>
   <div class="hero">
     <div class="hero-copy">
       <div class="badge-vc">VICE CITY</div>
@@ -338,16 +372,16 @@
             <div class="creator">@vice.highlight.hub</div>
           </div>
         </a>
-        <a class="card" href="https://www.tiktok.com/@weissehaare/video/7710262477820349728" target="_blank" rel="noopener noreferrer">
+        <a class="card" href="https://www.tiktok.com/@millzaatv/video/7710472952101342496" target="_blank" rel="noopener noreferrer">
           <div class="thumb">
-            <img src="img/v07.jpg" alt="Unendlich Geld" loading="lazy" style="aspect-ratio:9/16;object-fit:cover;width:100%">
+            <img src="img/v07.jpg" alt="Seltener lila McLaren mit Lachgas, 10.000 $ und schallgedämpfte Pistole" loading="lazy" style="aspect-ratio:9/16;object-fit:cover;width:100%">
             <div class="fade"></div>
             <div class="num">2</div>
             <div class="play"><svg width="22" height="24" viewBox="0 0 22 24"><path d="M3 2 L20 12 L3 22 Z"/></svg></div>
           </div>
           <div class="meta">
-            <div class="title">Unendlich Geld</div>
-            <div class="creator">@weissehaare</div>
+            <div class="title">Seltener lila McLaren mit Lachgas, 10.000 $ und schallgedämpfte Pistole</div>
+            <div class="creator">@millzaatv</div>
           </div>
         </a>
         <a class="card" href="https://www.tiktok.com/@taiheianime/video/7709703360022203681" target="_blank" rel="noopener noreferrer">
@@ -395,16 +429,16 @@
             <div class="creator">@scenesecrets18</div>
           </div>
         </a>
-        <a class="card" href="https://www.tiktok.com/@shamzzgaming/video/7709812577605373216" target="_blank" rel="noopener noreferrer">
+        <a class="card" href="https://www.tiktok.com/@lesterdfinished/video/7709911259071679775" target="_blank" rel="noopener noreferrer">
           <div class="thumb">
-            <img src="img/v15.jpg" alt="2 legendäre Waffen gleich am Anfang" loading="lazy" style="aspect-ratio:9/16;object-fit:cover;width:100%">
+            <img src="img/v15.jpg" alt="Die besten Gratis-Waffen" loading="lazy" style="aspect-ratio:9/16;object-fit:cover;width:100%">
             <div class="fade"></div>
             <div class="num">6</div>
             <div class="play"><svg width="22" height="24" viewBox="0 0 22 24"><path d="M3 2 L20 12 L3 22 Z"/></svg></div>
           </div>
           <div class="meta">
-            <div class="title">2 legendäre Waffen gleich am Anfang</div>
-            <div class="creator">@shamzzgaming</div>
+            <div class="title">Die besten Gratis-Waffen</div>
+            <div class="creator">@lesterdfinished</div>
           </div>
         </a>
         <a class="card" href="https://www.tiktok.com/@fragnart/video/7709830381025103137" target="_blank" rel="noopener noreferrer">
@@ -554,16 +588,16 @@
             <div class="creator">@venom.aimz</div>
           </div>
         </a>
-        <a class="card" href="https://www.tiktok.com/@sadhappytired/video/7710036248525606177" target="_blank" rel="noopener noreferrer">
+        <a class="card" href="https://www.tiktok.com/@1deflay/video/7710945980979498254" target="_blank" rel="noopener noreferrer">
           <div class="thumb">
-            <img src="img/v09.jpg" alt="Mutierte Riesenkrabbe" loading="lazy" style="aspect-ratio:9/16;object-fit:cover;width:100%">
+            <img src="img/v09.jpg" alt="Geheimes Versteck mit 50.000 $ und legendärem Sturmgewehr" loading="lazy" style="aspect-ratio:9/16;object-fit:cover;width:100%">
             <div class="fade"></div>
             <div class="num">17</div>
             <div class="play"><svg width="22" height="24" viewBox="0 0 22 24"><path d="M3 2 L20 12 L3 22 Z"/></svg></div>
           </div>
           <div class="meta">
-            <div class="title">Mutierte Riesenkrabbe</div>
-            <div class="creator">@sadhappytired</div>
+            <div class="title">Geheimes Versteck mit 50.000 $ und legendärem Sturmgewehr</div>
+            <div class="creator">@1deflay</div>
           </div>
         </a>
       </div>
@@ -575,40 +609,40 @@
         <div class="sec-count">3 Clips</div>
       </div>
       <div class="grid">
-        <a class="card" href="https://www.tiktok.com/@vicecityvibes.de/video/7707450428350336278" target="_blank" rel="noopener noreferrer">
+        <a class="card" href="https://www.tiktok.com/@abtw.yt/video/7710393289148517645" target="_blank" rel="noopener noreferrer">
           <div class="thumb">
-            <img src="img/v20.jpg" alt="5 Fehler in deiner ersten Stunde" loading="lazy" style="aspect-ratio:9/16;object-fit:cover;width:100%">
+            <img src="img/v20.jpg" alt="5 Dinge, die du vor dem Ende von Kapitel 1 machen solltest" loading="lazy" style="aspect-ratio:9/16;object-fit:cover;width:100%">
             <div class="fade"></div>
             <div class="num">18</div>
             <div class="play"><svg width="22" height="24" viewBox="0 0 22 24"><path d="M3 2 L20 12 L3 22 Z"/></svg></div>
           </div>
           <div class="meta">
-            <div class="title">5 Fehler in deiner ersten Stunde</div>
-            <div class="creator">@vicecityvibes.de</div>
+            <div class="title">5 Dinge, die du vor dem Ende von Kapitel 1 machen solltest</div>
+            <div class="creator">@abtw.yt</div>
           </div>
         </a>
-        <a class="card" href="https://www.tiktok.com/@nichtsosteve/video/7709884056980245782" target="_blank" rel="noopener noreferrer">
+        <a class="card" href="https://www.tiktok.com/@jaywayygaming/video/7710434021565615373" target="_blank" rel="noopener noreferrer">
           <div class="thumb">
-            <img src="img/v16.jpg" alt="GTA 6 Clip (Teil 1)" loading="lazy" style="aspect-ratio:9/16;object-fit:cover;width:100%">
+            <img src="img/v16.jpg" alt="5 Dinge, die du in GTA 6 noch nicht wusstest" loading="lazy" style="aspect-ratio:9/16;object-fit:cover;width:100%">
             <div class="fade"></div>
             <div class="num">19</div>
             <div class="play"><svg width="22" height="24" viewBox="0 0 22 24"><path d="M3 2 L20 12 L3 22 Z"/></svg></div>
           </div>
           <div class="meta">
-            <div class="title">GTA 6 Clip (Teil 1)</div>
-            <div class="creator">@nichtsosteve</div>
+            <div class="title">5 Dinge, die du in GTA 6 noch nicht wusstest</div>
+            <div class="creator">@jaywayygaming</div>
           </div>
         </a>
-        <a class="card" href="https://www.tiktok.com/@nichtsosteve/video/7709878606595443990" target="_blank" rel="noopener noreferrer">
+        <a class="card" href="https://www.tiktok.com/@im_a_male_karen/video/7709688260775136526" target="_blank" rel="noopener noreferrer">
           <div class="thumb">
-            <img src="img/v18.jpg" alt="GTA 6 Clip (Teil 2)" loading="lazy" style="aspect-ratio:9/16;object-fit:cover;width:100%">
+            <img src="img/v18.jpg" alt="Rundgang durch den Zoo" loading="lazy" style="aspect-ratio:9/16;object-fit:cover;width:100%">
             <div class="fade"></div>
             <div class="num">20</div>
             <div class="play"><svg width="22" height="24" viewBox="0 0 22 24"><path d="M3 2 L20 12 L3 22 Z"/></svg></div>
           </div>
           <div class="meta">
-            <div class="title">GTA 6 Clip (Teil 2)</div>
-            <div class="creator">@nichtsosteve</div>
+            <div class="title">Rundgang durch den Zoo</div>
+            <div class="creator">@im_a_male_karen</div>
           </div>
         </a>
       </div>
@@ -619,6 +653,16 @@
   <p class="photo-credit">Foto: Dade History, <a href="https://commons.wikimedia.org/wiki/File:South_Pointe_Drive_at_Sundown.png" target="_blank" rel="noopener noreferrer">South Pointe Drive at Sundown</a>, <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a> (für die Seite verkleinert und nach WebP gewandelt).</p>
 
   <script>
+    (function () {
+      var el = document.querySelector(".update-banner");
+      if (!el) return;
+      var iso = el.getAttribute("data-updated") || "";
+      var p = iso.split("-");
+      var dateEl = el.querySelector(".update-date");
+      if (dateEl && p.length === 3) {
+        dateEl.textContent = "Zuletzt aktualisiert: " + p[2] + "." + p[1] + "." + p[0];
+      }
+    })();
     document.querySelectorAll("[data-jump]").forEach(function (btn) {
       btn.addEventListener("click", function () {
         var el = document.getElementById(btn.getAttribute("data-jump"));
