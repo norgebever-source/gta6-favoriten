@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Archiv 24.11.2026</title>
+<style>
+  :root {
+    --pink: #ff2fa8;
+    --cyan: #22e4ff;
+    --orange: #ff8a3d;
+    --night: #120724;
+    --deep: #1c0a33;
+    --col: #22e4ff;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: linear-gradient(180deg, var(--deep) 0%, var(--night) 40%, #1a0830 100%);
+    min-height: 100vh;
+    padding-bottom: 56px;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    color: #fff;
+  }
+  @font-face {
+    font-family: Bungee;
+    src: url("../../fonts/Bungee-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  .hero {
+    text-align: center;
+    padding: 36px 16px 28px;
+    background:
+      linear-gradient(90deg, rgba(255,47,168,0.18), rgba(34,228,255,0.10) 50%, rgba(255,138,61,0.18)),
+      linear-gradient(180deg, #2a0a42 0%, #120724 100%);
+    border-bottom: 2px solid var(--pink);
+    box-shadow: 0 0 28px #ff2fa866, inset 0 -1px 0 #22e4ff88;
+  }
+  .hero h1 {
+    font-family: Bungee, system-ui, sans-serif;
+    font-size: clamp(28px, 8vw, 52px);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: 0.5px;
+    margin: 0 0 10px;
+    color: #fff;
+    text-transform: uppercase;
+    transform: skewX(-6deg);
+    text-shadow: 2px 2px 0 var(--pink), 4px 4px 0 var(--cyan), 0 0 18px var(--pink);
+  }
+  .hero-sub {
+    display: inline-block;
+    font-size: clamp(14px, 3.6vw, 18px);
+    font-weight: 800;
+    font-style: italic;
+    color: var(--cyan);
+    text-shadow: 0 0 8px var(--cyan);
+  }
+  .wrap { max-width: 1000px; margin: 0 auto; padding: 0 12px; }
+  .section { padding-top: 36px; }
+  .sec-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+  }
+  .sec-title {
+    font-size: clamp(20px, 5.5vw, 30px);
+    font-weight: 900;
+    font-style: italic;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 6px 16px;
+    border: 3px solid var(--col);
+    border-radius: 10px;
+    text-shadow: 0 0 6px var(--col), 0 0 14px var(--col), 0 0 28px var(--col);
+    box-shadow: 0 0 14px var(--col), inset 0 0 14px var(--col);
+    transform: skewX(-6deg);
+  }
+  .sec-count {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--night);
+    background: var(--col);
+    border-radius: 999px;
+    padding: 3px 10px;
+    box-shadow: 0 0 10px var(--col);
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  @media (min-width: 800px) {
+    .grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  .card {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #1f0b38;
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  }
+  .card:hover, .card:focus-visible {
+    transform: translateY(-4px);
+    border-color: var(--col);
+    box-shadow: 0 0 22px var(--col), 0 0 4px var(--col);
+    outline: none;
+  }
+  .thumb { position: relative; }
+  .thumb img {
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
+    width: 100%;
+    display: block;
+    border: 0;
+  }
+  .fade {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(18,7,36,0) 55%, rgba(18,7,36,0.85) 100%);
+    pointer-events: none;
+  }
+  .num {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    min-width: 34px;
+    height: 34px;
+    padding: 0 6px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 17px;
+    line-height: 1;
+    color: var(--night);
+    background: linear-gradient(135deg, var(--pink), var(--orange));
+    box-shadow: 0 0 10px var(--pink);
+  }
+  .play {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 58px;
+    height: 58px;
+    margin-left: -29px;
+    margin-top: -29px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(18,7,36,0.55);
+    border: 3px solid var(--col);
+    box-shadow: 0 0 18px var(--col);
+    transition: all .18s ease;
+  }
+  .play path { fill: #fff; transition: fill .18s ease; }
+  .card:hover .play, .card:focus-visible .play {
+    background: var(--col);
+    border-color: #fff;
+  }
+  .card:hover .play path, .card:focus-visible .play path { fill: var(--night); }
+  .meta { padding: 10px 11px 12px; }
+  .title { font-size: 15px; font-weight: 800; line-height: 1.25; }
+  .creator {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--cyan);
+    margin-top: 5px;
+    text-shadow: 0 0 6px #22e4ff88;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .views {
+    font-size: 12px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.75);
+    margin-top: 4px;
+  }
+</style>
+</head>
+<body>
+  <div class="hero">
+    <h1>Archiv</h1>
+    <div class="hero-sub">24.11.2026 · 8 Clips</div>
+  </div>
+  <main class="wrap">
+    <section class="section">
+      <div class="sec-head">
+        <div class="sec-title">Aus der Sammlung</div>
+        <div class="sec-count">8 Clips</div>
+      </div>
+      <div class="grid">
+        <a class="card" href="https://www.tiktok.com/@venom.aimz/video/7709975740997029152" target="_blank" rel="noopener noreferrer">
+          <div class="thumb">
+            <img src="venom-aimz.jpg" alt="Geheimes Easter Egg" loading="lazy" style="aspect-ratio:9/16;object-fit:cover;width:100%">
+            <div class="fade"></div>
+            <div class="num">1</div>
+            <div class="play"><svg width="22" height="24" viewBox="0 0 22 24"><path d="M3 2 L20 12 L3 22 Z"/></svg></div>
+          </div>
+          <div class="meta">
+            <div class="title">Geheimes Easter Egg</div>
+            <div class="creator">@venom.aimz</div>
+            <div class="views">118.900 Aufrufe</div>
+          </div>
+        </a>
+        <a class="card" href="https://www.tiktok.com/@fragnart/video/7709830381025103137" target="_blank" rel="noopener noreferrer">
+          <div class="thumb">
+            <img src="fragnart.jpg" alt="SM-69 Scharfschützengewehr und Fallschirme" loading="lazy" style="aspect-ratio:9/16;object-fit:cover;width:100%">
+            <div class="fade"></div>
+            <div class="num">2</div>
+            <div class="play"><svg width="22" height="24" viewBox="0 0 22 24"><path d="M3 2 L20 12 L3 22 Z"/></svg></div>
+          </div>
+          <div class="meta">
+            <div class="title">SM-69 Scharfschützengewehr und Fallschirme</div>
+            <div class="creator">@fragnart</div>
+            <div class="views">124.200 Aufrufe</div>
+          </div>
+        </a>
+        <a class="card" href="https://www.tiktok.com/@im_a_male_karen/video/7709688260775136526" target="_blank" rel="noopener noreferrer">
+          <div class="thumb">
+            <img src="im-a-male-karen.jpg" alt="Rundgang durch den Zoo" loading="lazy" style="aspect-ratio:9/16;object-fit:cover;width:100%">
+            <div class="fade"></div>
+            <div class="num">3</div>
+            <div class="play"><svg width="22" height="24" viewBox="0 0 22 24"><path d="M3 2 L20 12 L3 22 Z"/></svg></div>
+          </div>
+          <div class="meta">
+            <div class="title">Rundgang durch den Zoo</div>
+            <div class="creator">@im_a_male_karen</div>
+            <div class="views">169.800 Aufrufe</div>
+          </div>
+        </a>
+        <a class="card" href="https://www.tiktok.com/@scenesecrets18/video/7710140924034043158" target="_blank" rel="noopener noreferrer">
+          <div class="thumb">
+            <img src="scenesecrets18.jpg" alt="Goldene AK-47 und Sportwagen nach dem Prolog" loading="lazy" style="aspect-ratio:9/16;object-fit:cover;width:100%">
+            <div class="fade"></div>
+            <div class="num">4</div>
+            <div class="play"><svg width="22" height="24" viewBox="0 0 22 24"><path d="M3 2 L20 12 L3 22 Z"/></svg></div>
+          </div>
+          <div class="meta">
+            <div class="title">Goldene AK-47 und Sportwagen nach dem Prolog</div>
+            <div class="creator">@scenesecrets18</div>
+            <div class="views">190.500 Aufrufe</div>
+          </div>
+        </a>
+        <a class="card" href="https://www.tiktok.com/@zed.gta/video/7710165816666262816" target="_blank" rel="noopener noreferrer">
+          <div class="thumb">
+            <img src="zed-gta.jpg" alt="Belohnungs-Karte in GTA 6" loading="lazy" style="aspect-ratio:9/16;object-fit:cover;width:100%">
+            <div class="fade"></div>
+            <div class="num">5</div>
+            <div class="play"><svg width="22" height="24" viewBox="0 0 22 24"><path d="M3 2 L20 12 L3 22 Z"/></svg></div>
+          </div>
+          <div class="meta">
+            <div class="title">Belohnungs-Karte in GTA 6</div>
+            <div class="creator">@zed.gta</div>
+            <div class="views">208.100 Aufrufe</div>
+          </div>
+        </a>
+        <a class="card" href="https://www.tiktok.com/@weissstudiode/video/7710590058176187681" target="_blank" rel="noopener noreferrer">
+          <div class="thumb">
+            <img src="weissstudiode.jpg" alt="Bonusinhalte: Vintage Vice City Pack" loading="lazy" style="aspect-ratio:9/16;object-fit:cover;width:100%">
+            <div class="fade"></div>
+            <div class="num">6</div>
+            <div class="play"><svg width="22" height="24" viewBox="0 0 22 24"><path d="M3 2 L20 12 L3 22 Z"/></svg></div>
+          </div>
+          <div class="meta">
+            <div class="title">Bonusinhalte: Vintage Vice City Pack</div>
+            <div class="creator">@weissstudiode</div>
+            <div class="views">211.300 Aufrufe</div>
+          </div>
+        </a>
+        <a class="card" href="https://www.tiktok.com/@vice.highlight.hub/video/7710213301468286230" target="_blank" rel="noopener noreferrer">
+          <div class="thumb">
+            <img src="vice-highlight-hub.jpg" alt="Unendlich-Geld-Glitch" loading="lazy" style="aspect-ratio:9/16;object-fit:cover;width:100%">
+            <div class="fade"></div>
+            <div class="num">7</div>
+            <div class="play"><svg width="22" height="24" viewBox="0 0 22 24"><path d="M3 2 L20 12 L3 22 Z"/></svg></div>
+          </div>
+          <div class="meta">
+            <div class="title">Unendlich-Geld-Glitch</div>
+            <div class="creator">@vice.highlight.hub</div>
+            <div class="views">389.900 Aufrufe</div>
+          </div>
+        </a>
+        <a class="card" href="https://www.tiktok.com/@taiheianime/video/7709703360022203681" target="_blank" rel="noopener noreferrer">
+          <div class="thumb">
+            <img src="taiheianime.jpg" alt="Schnelles Geld: der Papagei" loading="lazy" style="aspect-ratio:9/16;object-fit:cover;width:100%">
+            <div class="fade"></div>
+            <div class="num">8</div>
+            <div class="play"><svg width="22" height="24" viewBox="0 0 22 24"><path d="M3 2 L20 12 L3 22 Z"/></svg></div>
+          </div>
+          <div class="meta">
+            <div class="title">Schnelles Geld: der Papagei</div>
+            <div class="creator">@taiheianime</div>
+            <div class="views">475.500 Aufrufe</div>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
